@@ -1,5 +1,6 @@
 1) in Redux (Reducer)  --->  if we dont spread the previous state while updating any property in the State then all the remaning properties will be lost
 2) in setState() ---> if we update only one property in the setState and dont speard the remaining property then it would not effect the another property
                             all will stay as it in the React State
-3) in useState --->                                                         
+3) in useState --->     Problem with UseState is if we dont speard the Previous values while Setting the State , then all the previous property will be gone/deleted and fresh property only be there
+                            so Theme is while Upadte the State in the useState, we must/need to Spread all the previous property                                                    
 
