@@ -1,0 +1,67 @@
+/// *****************************************************************************************
+
+Problem with UseState is if we dont speard the Previous values while Setting the State , then all the previous property will be gone/deleted and fresh property only be there
+   so Theme is while Upadte the State in the useState, we must/need to Spread all the previous property
+
+/// *****************************************************************************************
+
+
+
+
+
+
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import "antd/dist/antd.css";
+import "./index.scss";
+// import App from "./App";
+import "./i18n";
+import * as serviceWorker from "./serviceWorker";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "../src/redux/store";
+const App = () => {
+  const [Obj, setObj] = useState({ name: "harish", age: "21" });
+  return (
+    <div>
+      <h1>name: {Obj.name}</h1>
+      <h1> age : {Obj.age} </h1>
+      <button
+        onClick={() => {
+          setObj({
+            name: "Neha",
+          });
+        }}
+      >
+        {" "}
+        update State with one Property{" "}
+      </button>
+      <button
+        onClick={() => {
+          setObj({
+            ...Obj,
+            name: "Neha",
+          });
+        }}
+      >
+        {" "}
+        update State with spearding all Property{" "}
+      </button>
+    </div>
+  );
+};
+
+ReactDOM.render(
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>,
+
+  document.getElementById("root")
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
