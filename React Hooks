@@ -1,0 +1,2 @@
+1)useMemo is used for jsx code
+2)useCallback is used for function ( i.e for each time the components update, no new function(object) pointer( is not created in memeory) it still refer to the old location
